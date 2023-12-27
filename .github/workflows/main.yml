@@ -20,3 +20,8 @@ jobs:
       env:
         PAT_URL: ${{ secrets.PAT_URL }}
 
+    - name: Debug PAT_URL
+      run: |
+         echo "PAT_URL: ${{ secrets.PAT_URL }}"
+  
+
