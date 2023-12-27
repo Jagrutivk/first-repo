@@ -16,6 +16,7 @@ jobs:
     - name: Push to Second Repo
       run: |
         git remote set-url --push origin ${{ secrets.PAT_URL }}
-        git push origin main
+        git push origin main  # Adjust the branch name if needed
       env:
         PAT_URL: ${{ secrets.PAT_URL }}
+
