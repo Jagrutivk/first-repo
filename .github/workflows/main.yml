@@ -17,12 +17,16 @@ jobs:
       run: |
         echo "PAT_URL: ${{ secrets.PAT_URL }}"
 
-    - name: Set Up Git and Push to Second Repo
+    - name: Set Up Git
       run: |
         git remote set-url origin https://github.com/Jagrutivk/Second-repo.git  # Replace with the correct URL
         git config --global user.email "github-actions@github.com"
         git config --global user.name "GitHub Actions"
-        git remote set-url --push origin ${{ secrets.PAT_URL }}
+      env:
+        PAT_URL: ${{ secrets.PAT_URL }}
+
+    - name: Push to Second Repo
+      run: |
         git push origin main  # Adjust the branch name if needed
       env:
-        PAT_URL: ${{ secrets.PAT_URL }}   
+        PAT_URL: ${{ secrets.PAT_URL }}
