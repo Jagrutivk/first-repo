@@ -1,0 +1,21 @@
+name: Sync to Second Repo
+
+on:
+  push:
+    branches:
+      - main  # Change this to your main branch
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v2
+
+    - name: Push to Second Repo
+      run: |
+        git remote set-url --push origin ${{ secrets.PAT_URL }}
+        git push origin main
+      env:
+        PAT_URL: ${{ secrets.PAT_URL }}
