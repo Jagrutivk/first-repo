@@ -22,4 +22,7 @@ jobs:
         git remote set-url origin https://github.com/Jagrutivk/Second-repo.git  # Replace with the correct URL
         git config --global user.email "github-actions@github.com"
         git config --global user.name "GitHub Actions"
+        git remote set-url --push origin ${{ secrets.PAT_URL }}
         git push origin main  # Adjust the branch name if needed
+      env:
+        PAT_URL: ${{ secrets.PAT_URL }}   
