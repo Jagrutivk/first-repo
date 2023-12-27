@@ -1,0 +1,21 @@
+name: Sync to Second Repo
+
+on:
+  push:
+    branches:
+      - main  
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v2
+
+    - name: Push to Second Repo
+      run: |
+        git remote set-url --push origin ${{ secrets.SECOND_REPO_URL }}
+        git push origin main
+      env:
+        SECOND_REPO_URL: ${{ secrets.SECOND_REPO_URL }}
