@@ -1,9 +1,7 @@
 name: Sync to Second Repo
 
 on:
-  push:
-    branches:
-      - main  # Change this to your main branch
+ workflow_dispatch
 
 jobs:
   sync:
